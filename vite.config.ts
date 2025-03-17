@@ -1,15 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import checker from "vite-plugin-checker";
+import oxlintPlugin from "vite-plugin-oxlint";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
 	plugins: [
 		react(),
-		checker({
-			typescript: true,
-			eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' },
-		}),
+		oxlintPlugin(),
 		VitePWA({
 			registerType: "autoUpdate",
 			workbox: {

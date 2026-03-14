@@ -1,17 +1,8 @@
-import { createRoot } from "react-dom/client";
-import {
-	ActionIcon,
-	AppShell,
-	Container,
-	Group,
-	MantineProvider,
-	Text,
-	rem,
-} from "@mantine/core";
-import { Main } from "./Main";
-
-import "@mantine/core/styles.css";
+import { ActionIcon, AppShell, Container, Group, MantineProvider, Text, rem } from "@mantine/core";
 import { IconBrandGithub } from "@tabler/icons-react";
+import { createRoot } from "react-dom/client";
+import "@mantine/core/styles.css";
+import { Main } from "./Main";
 
 const App = () => {
 	return (
@@ -30,18 +21,8 @@ const App = () => {
 							</div>
 						</Container>
 						<Container>
-							<ActionIcon
-								component="a"
-								href="https://github.com/Lukas-Nielsen"
-								target="_blank"
-								size="lg"
-								color="gray"
-								variant="subtle"
-							>
-								<IconBrandGithub
-									style={{ width: rem(18), height: rem(18) }}
-									stroke={1.5}
-								/>
+							<ActionIcon component="a" href="https://github.com/Lukas-Nielsen" target="_blank" size="lg" color="gray" variant="subtle">
+								<IconBrandGithub style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
 							</ActionIcon>
 						</Container>
 					</Group>

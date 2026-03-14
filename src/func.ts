@@ -1,4 +1,4 @@
-export const getSmall = (data: (string | undefined)[]) => data.sort()[0];
+export const getSmall = (data: string[]) => data.sort((a, b) => a.localeCompare(b))[0];
 
 export const strToTime = (data: string) => {
 	const t = data.split(/[:,]/).map((entry) => {

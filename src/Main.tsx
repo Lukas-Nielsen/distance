@@ -1,32 +1,18 @@
-import React, { useRef, useState } from "react";
-import {
-	Card,
-	Center,
-	CloseButton,
-	Input,
-	InputLabel,
-	NumberInput,
-	SimpleGrid,
-	Stack,
-} from "@mantine/core";
+import { Card, Center, CloseButton, Group, Input, InputLabel, NumberFormatter, NumberInput, SimpleGrid, Stack } from "@mantine/core";
+import { useRef, useState } from "react";
 import { IMaskInput } from "react-imask";
+
 import { getSmall, strToTime } from "./func";
 
 export const Main = () => {
 	const [distance, setDistance] = useState<number>(100);
-	const [data, setData] = useState<(string | undefined)[]>([]);
+	const [data, setData] = useState<string[]>([]);
 
 	return (
 		<>
 			<Center>
 				<Stack m={16}>
-					<NumberInput
-						value={distance}
-						onChange={(e) =>
-							setDistance(typeof e === "string" ? parseInt(e) : e)
-						}
-						label="Streckenlänge"
-					/>
+					<NumberInput value={distance} onChange={(e) => setDistance(typeof e === "string" ? parseInt(e) : e)} label="Streckenlänge" />
 					<InputLabel mb={-16}>Zeiten</InputLabel>
 					<SimpleGrid cols={{ base: 1, sm: 2 }}>
 						{Array(10)
@@ -55,7 +41,7 @@ export const Main = () => {
 														iRef.current.value = "";
 													}
 													const temp = [...data];
-													temp[i] = undefined;
+													temp[i] = "";
 													setData(temp);
 												}}
 											/>
@@ -80,12 +66,24 @@ export const Main = () => {
 
 						return (
 							<Card key={i}>
-								{(
-									(distance - (distance / eT) * sT) *
-									100
-								).toFixed(2)}{" "}
-								cm / {((eT * 100 - sT * 100) / 100).toFixed(2)}{" "}
-								sek
+								<Group justify="space-between" wrap="nowrap">
+									<NumberFormatter
+										suffix=" cm"
+										value={(distance - (distance / eT) * sT) * 100}
+										thousandSeparator="."
+										decimalSeparator=","
+										decimalScale={2}
+										fixedDecimalScale
+									/>
+									<NumberFormatter
+										suffix=" sek"
+										value={(eT * 100 - sT * 100) / 100}
+										thousandSeparator="."
+										decimalSeparator=","
+										decimalScale={2}
+										fixedDecimalScale
+									/>
+								</Group>
 							</Card>
 						);
 					})}

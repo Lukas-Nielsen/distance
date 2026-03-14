@@ -1,26 +1,38 @@
 {
-	"name": "swimming-points",
-	"type": "module",
+	"name": "distance",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vp build",
+		"dev": "vp dev",
+		"format": "vp fmt"
+	},
 	"dependencies": {
-		"@mantine/core": "^8.3.1",
-		"@mantine/hooks": "^8.0.1",
-		"@tabler/icons-react": "^3.37.1",
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0",
+		"@mantine/core": "^8.3.16",
+		"@mantine/hooks": "^8.3.16",
+		"@tabler/icons-react": "^3.40.0",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
 		"react-imask": "^7.6.1"
 	},
-	"scripts": {
-		"build": "vite build",
-		"dev": "vite",
-		"format": "prettier . --write"
+	"devDependencies": {
+		"@types/node": "^25.5.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^6.0.1",
+		"postcss": "^8.5.8",
+		"postcss-preset-mantine": "^1.18.0",
+		"postcss-simple-vars": "^7.0.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.3",
+		"vite": "npm:@voidzero-dev/vite-plus-core@latest",
+		"vite-plugin-oxlint": "^2.0.1",
+		"vite-plus": "latest"
 	},
-	"prettier": {
-		"proseWrap": "always",
-		"singleQuote": false,
-		"tabWidth": 4,
-		"useTabs": true
+	"overrides": {
+		"vite": "npm:@voidzero-dev/vite-plus-core@latest",
+		"vitest": "npm:@voidzero-dev/vite-plus-test@latest"
 	},
 	"browserslist": {
 		"production": [
@@ -34,26 +46,5 @@
 			"last 1 safari version"
 		]
 	},
-	"devDependencies": {
-		"@types/node": "^25.3.3",
-		"@types/react": "^19.2.0",
-		"@types/react-dom": "^19.2.0",
-		"@vitejs/plugin-react": "^5.1.0",
-		"oxlint": "^1.50.0",
-		"postcss": "^8.5.6",
-		"postcss-preset-mantine": "^1.18.0",
-		"postcss-simple-vars": "^7.0.1",
-		"prettier": "^3.8.1",
-		"prettier-plugin-packagejson": "^3.0.0",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.9.2",
-		"vite": "^7.3.1",
-		"vite-plugin-oxlint": "^1.6.0",
-		"vite-plugin-pwa": "^1.2.0"
-	},
-	"overrides": {
-		"vite-plugin-oxlint": {
-			"vite": "$vite"
-		}
-	}
+	"packageManager": "npm@11.11.1"
 }

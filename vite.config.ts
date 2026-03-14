@@ -1,20 +1,34 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import oxlintPlugin from "vite-plugin-oxlint";
-import { VitePWA } from "vite-plugin-pwa";
+import { defineConfig } from "vite-plus";
 
 export default defineConfig({
-	plugins: [
-		react(),
-		oxlintPlugin(),
-		VitePWA({
-			registerType: "autoUpdate",
-			workbox: {
-				globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
-			},
-		}),
-	],
+	staged: {
+		"*": "vp check --fix",
+	},
+	lint: {
+		options: { typeAware: true, typeCheck: true },
+		plugins: ["eslint", "import", "oxc", "node", "react", "typescript"],
+	},
+	fmt: {
+		useTabs: true,
+		singleQuote: false,
+		tabWidth: 4,
+		sortImports: {
+			groups: [
+				"type-import",
+				["value-builtin", "value-external"],
+				"type-internal",
+				"value-internal",
+				["type-parent", "type-sibling", "type-index"],
+				["value-parent", "value-sibling", "value-index"],
+				"unknown",
+			],
+		},
+		sortPackageJson: true,
+		printWidth: 150,
+	},
+	plugins: [react()],
 	base: "/",
-	server: { open: true, port: 3000 },
+	server: { open: true },
 	build: { emptyOutDir: true, outDir: "./build" },
 });

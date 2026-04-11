@@ -7,7 +7,11 @@ export default defineConfig({
 	},
 	lint: {
 		options: { typeAware: true, typeCheck: true },
-		plugins: ["eslint", "import", "oxc", "node", "react", "typescript"],
+		plugins: ["eslint", "import", "jsx-a11y", "react", "typescript", "oxc"],
+		rules: {
+			"react/exhaustive-deps": "off",
+			"eslint/no-unused-vars": ["warn", { fix: { imports: "fix", variables: "suggestion" } }],
+		},
 	},
 	fmt: {
 		useTabs: true,

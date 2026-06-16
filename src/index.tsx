@@ -2,6 +2,7 @@ import { ActionIcon, AppShell, Container, Group, MantineProvider, Text, rem } fr
 import { IconBrandGithub } from "@tabler/icons-react";
 import { createRoot } from "react-dom/client";
 import "@mantine/core/styles.css";
+
 import { Main } from "./Main";
 
 const App = () => {

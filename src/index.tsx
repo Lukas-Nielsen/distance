@@ -5,6 +5,8 @@ import "@mantine/core/styles.css";
 
 import { Main } from "./Main";
 
+const YEAR = new Date().getFullYear();
+
 const App = () => {
 	return (
 		<MantineProvider defaultColorScheme="auto">
@@ -17,7 +19,7 @@ const App = () => {
 						<Container>
 							<div>
 								<Text c="dimmed" size="sm">
-									© {new Date().getFullYear()} Lukas Nielsen
+									© {YEAR} Lukas Nielsen
 								</Text>
 							</div>
 						</Container>
